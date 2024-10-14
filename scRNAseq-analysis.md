@@ -230,14 +230,14 @@ Hücreleri kümelemek, scRNA-seq analizi sürecinin önemli bir aşamasıdır. B
 
 Kümeleme adımının ardından, her bir küme için belirteçler atanarak bu hücre gruplarının tanımlanması sağlanır. Belirteçler, belirli hücre tiplerine özgü genlerin ekspresyon seviyeleri üzerinden belirlenir ve genellikle literatürdeki referanslar doğrultusunda seçilir. Belirteçlerden bazıları şunları içerir:
 
--CD4+ T cells:  IL7R, CCR7
--CD8+ T cells:  CD8A, CD8B
--CD14+ Monocytes: CD14, LYZ
--B cells: MS4A1, CD79A
--Natural killer (NK) cells: GNLY, NKG7, KLRB1
--Dendritic Cells: FCER1A, CST3
--FCGR3A+ Monocytes: FCGR3A, MS4A7
--Platets: PPBP, PF4
+- CD4+ T cells: IL7R, CCR7
+- CD8+ T cells: CD8A, CD8B
+- CD14+ Monocytes: CD14, LYZ
+- B cells: MS4A1, CD79A
+- Natural killer (NK) cells: GNLY, NKG7, KLRB1
+- Dendritic Cells: FCER1A, CST3
+- FCGR3A+ Monocytes: FCGR3A, MS4A7
+- Platelets: PPBP, PF4
 
 Bu belirteçler, genel hücre tiplerinin ataması için bir referans sağlarken, alt hücre grupları için atamaların yapılabilmesi amacıyla ek belirteçlere ihtiyaç duyulabilir. Örneğin, T hücreleri CD4+ ve CD8+ alt gruplarına ayrılabilirken, B hücreleri de plazma hücreleri ve hafıza B hücreleri olarak sınıflandırılabilir. Böylece, hücresel heterojenite daha iyi anlaşılabilir ve spesifik işlevlerin incelenmesine olanak tanır.
 
