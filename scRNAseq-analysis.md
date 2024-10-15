@@ -4,7 +4,7 @@
 - [Giriş](#giriş)
 - [Bölüm 1](#bölüm-1)
   - [1.1. Kütüphaneleri Ortama Entegre Etme](#11-kütüphaneleri-ortama-entegre-etme)
-  - [1.2. Veri Yükleme ve Seurat nesnesi oluşturma](#12-veri-yükleme-ve-seurat-nesnesi-oluşturma)
+  - [1.2. Veri Yükleme ve Seurat Nesnesi Oluşturma](#12-veri-yükleme-ve-seurat-nesnesi-oluşturma)
   - [1.3. Kalite Kontrol](#13-kalite-kontrol)
   - [1.4. Normalizasyon](#14-normalizasyon)
   - [1.5. Değişken Özelliklerin Belirlenmesi (özellik seçimi)](#15-değişken-özelliklerin-belirlenmesi-özellik-seçimi)
@@ -40,7 +40,7 @@ install.packages('Seurat')
 install.packages('tidyverse')
 ```
 
-## 1.2. Veri Yükleme ve Seurat nesnesi oluşturma
+## 1.2. Veri Yükleme ve Seurat Nesnesi Oluşturma
 
 Seurat, analiz boyunca verilerin saklanması ve işlenmesinde Seurat nesnesi adındaki veri türünü kullanır. Bu nedenle, ilk adım veriyi okumak ve Seurat nesnesi oluşturmaktır. Veri okuma adımında çeşitli okuma yöntemleri bulunmaktadır. `Read10x` fonksiyonu, 10x Genomics platformu tarafından üretilen çıktıları okumak için özel olarak tasarlanmıştır. Aynı zamanda, `ReadMtx` fonksiyonu kullanılarak da veriler okunur. `ReadMtx`, Daha esnektir. 10x verilerini okuyabilir, ancak diğer kaynaklardan gelen benzer formattaki verileri de okuyabilir.
 
