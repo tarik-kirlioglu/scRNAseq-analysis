@@ -12,7 +12,7 @@
   - [1.7. Temel Bileşen Analizi ile Boyut Azaltma](#17-temel-bileşen-analizi-ile-boyut-azaltma)
   - [1.8. Hücreleri Kümeleme](#18-hücreleri-kümeleme)
   - [1.9. Non-linear Dimensional Reduction (UMAP/tSNE)](#19-non-linear-dimensional-reduction-umaptsne)
-  - [1.10. Diferansiyel Olarak İfade Edilen Özelliklerin (Belirteçlerin) Belirlenmesi ve Hücre Tiplerini Atama](#110-diferansiyel-olarak-ifade-edilen-özelliklerin-belirteçlerin-belirlenmesi-ve-hücre-tiplerini-atama)
+  - [1.10. Diferansiyel Olarak İfade Edilen Özelliklerin (Belirteçlerin) Belirlenmesi ve Hücre Tiplerini Atama](#110-diferansiyel-olarak-ifade-edilen-özelliklerin-(belirteçlerin)-belirlenmesi-ve-hücre-tiplerini-atama)
   - [1.11. Sonuçları Kaydetme](#111-sonuçları-kaydetme)
 
 
