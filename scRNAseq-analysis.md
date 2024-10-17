@@ -92,6 +92,7 @@ plot1 <- FeatureScatter(seurat_obj, feature1 = "nCount_RNA", feature2 = "percent
 plot2 <- FeatureScatter(seurat_obj, feature1 = "nCount_RNA", feature2 = "nFeature_RNA")
 plot1 + plot2
 ```
+![featurescatter](images/featurescatter.png)
 
 Bu veri seti için 400 ile 6000 arasında tespit edilen gen sayısı ve %10'dan düşük bir mitokondriyal ekspresyon yüzdesi kullanılmıştır. Fakat, farklı filtreleme eşikleri de kullanılabilir.
 
