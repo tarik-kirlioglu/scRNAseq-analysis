@@ -94,7 +94,7 @@ plot1 + plot2
 ```
 ![featurescatter](images/featurescatter.png)
 
-Bu veri seti için 400 ile 6000 arasında tespit edilen gen sayısı ve %10'dan düşük bir mitokondriyal ekspresyon yüzdesi kullanılmıştır. Fakat, farklı filtreleme eşikleri de kullanılabilir.
+Gen sayısı ve transkrip sayısı arasındaki korelasyona dayalı olarak iki metrikten birini ve mitokondriyal yüzdeleri filtreleme için kullanabiliriz. Bu veri seti için 400 ile 6000 arasında tespit edilen gen sayısı ve %10'dan düşük bir mitokondriyal ekspresyon yüzdesi kullanılmıştır. Ancak, farklı filtreleme eşikleri de değerlendirilebilir.
 
 ```R
 seurat_obj <- subset(seurat_obj, subset = nFeature_RNA > 400 & nFeature_RNA < 6000 & percent.mt < 10)
