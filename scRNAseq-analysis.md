@@ -86,7 +86,7 @@ VlnPlot(seurat_obj, features = c("nCount_RNA", "nFeature_RNA", "percent.mt"))
 ```
 ![vlnplot_qc1](images/vlnplot_qc1.png)
 
-Özellikler arasındaki ilişkileri incelemek için FeatureScatter kullanılabilir.
+Özellikler arasındaki ilişkileri incelemek için `FeatureScatter` kullanılabilir.
 ```R
 plot1 <- FeatureScatter(seurat_obj, feature1 = "nCount_RNA", feature2 = "percent.mt")
 plot2 <- FeatureScatter(seurat_obj, feature1 = "nCount_RNA", feature2 = "nFeature_RNA")
@@ -94,7 +94,7 @@ plot1 + plot2
 ```
 ![featurescatter](images/featurescatter.png)
 
-Gen sayısı ve transkrip sayısı arasındaki korelasyona dayalı olarak iki metrikten birini ve mitokondriyal yüzdeleri filtreleme için kullanabiliriz. Bu veri seti için 400 ile 6000 arasında tespit edilen gen sayısı ve %10'dan düşük bir mitokondriyal ekspresyon yüzdesi kullanılmıştır. Ancak, farklı filtreleme eşikleri de değerlendirilebilir.
+Gen sayısı ve transkript sayısı arasındaki korelasyona dayalı olarak iki metrikten birini ve mitokondriyal yüzdeleri filtreleme için kullanabiliriz. Bu veri seti için 400 ile 6000 arasında tespit edilen gen sayısı ve %10'dan düşük bir mitokondriyal ekspresyon yüzdesi kullanılmıştır. Ancak, farklı filtreleme eşikleri de değerlendirilebilir.
 
 ```R
 seurat_obj <- subset(seurat_obj, subset = nFeature_RNA > 400 & nFeature_RNA < 6000 & percent.mt < 10)
