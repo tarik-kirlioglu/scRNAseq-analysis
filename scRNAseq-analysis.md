@@ -225,7 +225,7 @@ dimplot1 + dimplot2
 ```
 ![umap_vs_tsne](images/umap_and_tsne.png)
 
-## 1.10. Diferansiyel Olarak İfade Edilen Özelliklerin (Belirteçlerin) Belirlenmesi ve Hücre Tiplerini Atama
+## 1.10. Diferansiyel Olarak İfade Edilen Belirteçlerin Belirlenmesi ve Hücre Tiplerini Atama
 
 Hücreleri kümelemek, scRNA-seq analizi sürecinin önemli bir aşamasıdır. Bu adım, benzer gen ekspresyon profillerine sahip hücrelerin gruplandırılmasını sağlar ve hücresel heterojenitenin anlaşılmasına katkıda bulunur. Kümeleme, hücrelerin biyolojik özelliklerine göre organize edilmesine olanak tanır ve genellikle belirteçler, literatür verileri veya otomatik yaklaşımlar kullanılarak gerçekleştirilir. Belirteçlere dayalı yöntemler, daha önce tanımlanmış gen setleri üzerinden hücre tiplerini belirlemeye yönelik olarak kullanılabilirken; otomatik yöntemler, makine öğrenimi algoritmaları ile hücreleri daha objektif bir şekilde sınıflandırma imkanı sunar.
 
@@ -239,8 +239,6 @@ Kümeleme adımının ardından, her bir küme için belirteçler atanarak bu h�
 - Dendritic Cells: FCER1A, CST3
 - FCGR3A+ Monocytes: FCGR3A, MS4A7
 - Platelets: PPBP, PF4
-
-Bu belirteçler, genel hücre tiplerinin ataması için bir referans sağlarken, alt hücre grupları için atamaların yapılabilmesi amacıyla ek belirteçlere ihtiyaç duyulabilir. Örneğin, T hücreleri CD4+ ve CD8+ alt gruplarına ayrılabilirken, B hücreleri de plazma hücreleri ve hafıza B hücreleri olarak sınıflandırılabilir. Böylece, hücresel heterojenite daha iyi anlaşılabilir ve spesifik işlevlerin incelenmesine olanak tanır.
 
 Bu aşamada `FeaturePlot`, `DimPlot` ve `DoHeatmap` gibi görselleştirme araçları kullanılarak, belirteçlerin hücre grupları içindeki dağılımı ve yoğunluğu incelenir.
 
