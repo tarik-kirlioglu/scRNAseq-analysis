@@ -18,7 +18,7 @@
   - [2.1. Kütüphaneleri Ortama Entegre Etme](#21-kütüphaneleri-ortama-entegre-etme)
   - [2.2. Verileri Yükleme ve Seurat Nesnesi Oluşturma](#22-verileri-yükleme-ve-seurat-nesnesi-oluşturma)
   - [2.3. Seurat Nesnelerini Birleştirmek](#23-seurat-nesnelerini-birleştirmek)
-  - [2.4. Kalite Kontrol](#24-kalite-kontrol)
+  - [2.4. Kalite Kontrol](https://github.com/tarik-kirlioglu/scRNAseq-analysis/blob/main/scRNAseq-analysis.md#34-kalite-kontrol)
   - [2.5. Temel Veri İşleme Adımları](#25-temel-veri-isleme-adimlari)
   - [2.6. Harmony ile Entegrasyon](#26-harmony-ile-entegrasyon)
   - [2.7. CCA (Canonical Correlation Analysis) ile Entegrasyon](#27-cca-ile-entegrasyon)
