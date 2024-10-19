@@ -2,7 +2,7 @@
 
 ## İçindekiler
 - [Giriş](#giriş)
-- [Bölüm 1: Temel Veri İşleme Adımları](#bölüm-1-temel-veri-işleme-adımları)
+- [Bölüm 1: Temel Veri İşleme Adımları](https://github.com/tarik-kirlioglu/scRNAseq-analysis/blob/main/scRNAseq-analysis.md#b%C3%B6l%C3%BCm-1-temel-veri-i%CC%87%C5%9Fleme-ad%C4%B1mlar%C4%B1)
   - [1.1. Kütüphaneleri Ortama Entegre Etme](#11-kütüphaneleri-ortama-entegre-etme)
   - [1.2. Veri Yükleme ve Seurat Nesnesi Oluşturma](#12-veri-yükleme-ve-seurat-nesnesi-oluşturma)
   - [1.3. Kalite Kontrol](#13-kalite-kontrol)
