@@ -369,7 +369,7 @@ seurat_merged <- merge(x=OV1_seurat, y=DN1_seurat, add.cell.ids = c("OV1", "DN1"
 
 ## 3.4. Kalite Kontrol
 
-Seurat nesnelerini birleştirdikten sonra, standart işleme adımları izlenir. İlk olarak, kalite kontrol aşamasında hücrelerin mitokondriyal gen ekspresyon oranı hesaplanır. Bu oran, hücrelerin sağlığını ve kalitesini değerlendirmek için önemli bir metrik olarak kullanılır. Ardından, violin grafikleri kullanılarak kalite kontrol metriklerinin dağılımı görsel olarak incelenir.
+Seurat nesnelerini birleştirdikten sonra, temel veri işleme adımları izlenir. İlk olarak, kalite kontrol aşamasında hücrelerin mitokondriyal gen ekspresyon oranı hesaplanır. Bu oran, hücrelerin sağlığını ve kalitesini değerlendirmek için önemli bir metrik olarak kullanılır. Ardından, violin grafikleri kullanılarak kalite kontrol metriklerinin dağılımı görsel olarak incelenir.
 
 ```R
 seurat_merged$percent.mt <- PercentageFeatureSet(seurat_merged, pattern = "^MT")          
