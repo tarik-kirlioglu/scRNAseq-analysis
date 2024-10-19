@@ -376,7 +376,7 @@ seurat_merged$percent.mt <- PercentageFeatureSet(seurat_merged, pattern = "^MT")
 VlnPlot(seurat_merged, features = c("nCount_RNA", "nFeature_RNA", "percent.mt"))   
 
 ```
-Grafik incelenerek, bu veri seti için hücre başına tespit edilen gen sayısının 400 ile 6000 arasında olması ve mitokondriyal ekspresyon yüzdesinin %10'dan düşük olmasının uygun olduğu görülebilir. Bu sınırlar, kalite kontrol aşamasında hücreleri filtrelemeye yardımcı olur ve analizde sadece biyolojik olarak anlamlı ve sağlıklı hücreler tutulur. 
+Grafik incelenerek, bu veri seti için hücre başına tespit edilen gen sayısının 400 ile 6000 arasında olması ve mitokondriyal ekspresyon yüzdesinin %10'dan düşük olmasının uygun olduğu görülebilir. Bu sınırlar, kalite kontrol aşamasında hücreleri filtrelemeye yardımcı olur ve analizde biyolojik olarak anlamlı ve sağlıklı hücreler tutulur. 
 
 ![vlnplot_merged_QC1](images/vlnplot_merged_QC1.png)
 
