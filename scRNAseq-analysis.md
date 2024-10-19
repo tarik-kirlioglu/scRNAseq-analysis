@@ -413,6 +413,7 @@ Standart veri işleme adımlarından sonra, `DimPlot` fonksiyonu kullanılarak e
 unintegratedUMAP <- DimPlot(seurat_merged, reduction = "unintegratedUMAP", group.by = "orig.ident")
 unintegratedUMAP
 ```
+![unintegratedUMAP](images/unintegratedUMAP.png)
 
 ## 3.6. Harmony ile Entegrasyon
 
