@@ -2,7 +2,7 @@
 
 ## İçindekiler
 - [Giriş](#giriş)
-- [Bölüm 1](#bölüm-1)
+- [Bölüm 1: Temel Veri İşleme Adımları](#bölüm-1-temel-veri-işleme-adımları)
   - [1.1. Kütüphaneleri Ortama Entegre Etme](#11-kütüphaneleri-ortama-entegre-etme)
   - [1.2. Veri Yükleme ve Seurat Nesnesi Oluşturma](#12-veri-yükleme-ve-seurat-nesnesi-oluşturma)
   - [1.3. Kalite Kontrol](#13-kalite-kontrol)
@@ -39,7 +39,7 @@ Tek hücreli RNA sekanslama (scRNA-seq), bireysel hücrelerin transkriptomların
 
 Şimdi, kodları ve açıklamalarını adım adım inceleyelim:
 
-## Bölüm 1
+## Bölüm 1: Temel Veri İşleme Adımları
 
 ## 1.1. Kütüphaneleri Ortama Entegre Etme
 
