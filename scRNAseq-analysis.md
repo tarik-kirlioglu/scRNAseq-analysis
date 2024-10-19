@@ -19,7 +19,7 @@
   - [2.2. Verileri Yükleme ve Seurat Nesnesi Oluşturma](#22-verileri-yükleme-ve-seurat-nesnesi-oluşturma)
   - [2.3. Seurat Nesnelerini Birleştirmek](#23-seurat-nesnelerini-birleştirmek)
   - [2.4. Kalite Kontrol](#24-kalite-kontrol)
-  - [2.5. Temel Veri İşleme Adımları](#25-temel-veri-işleme-adımları)
+  - [2.5. Temel Veri İşleme Adımları](#25-temel-veri-isleme-adimlari)
   - [2.6. Harmony ile Entegrasyon](#26-harmony-ile-entegrasyon)
   - [2.7. CCA (Canonical Correlation Analysis) ile Entegrasyon](#27-cca-ile-entegrasyon)
   - [2.8. JointPCA ile Entegrasyon](#28-jointpca-ile-entegrasyon)
@@ -504,7 +504,8 @@ Görselleştirme için `DimPlot` kullanılabilir ve reduction parametresi `JPCAU
 JPCAUMAP <-DimPlot(seurat_integrated, reduction = "JPCAUMAP", group.by = "orig.ident")
 JPCAUMAP
 ```
-![JPCAUMAP](images/JJPCAUMAP.png)
+![JPCAUMAP](images/JPCAUMAP.png)
+
 ## 3.9. RPCA ile Entegrasyon
 
 Robust Principal Component Analysis (RPCA), scRNA-seq verilerinin entegrasyonu için etkili bir yöntemdir. Farklı hücre dizilimi verilerini bir araya getirirken, RPCA, veri setleri arasındaki biyolojik benzerlikleri belirlemek ve teknik varyasyonu azaltmak için kullanılır. Bu yöntem, geleneksel PCA'nın sınırlamalarını aşarak, aykırı değerlerin etkisini en aza indirir ve verilerin gürültüden arındırılmasını sağlar.
