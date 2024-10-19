@@ -19,7 +19,7 @@
   - [2.2. Verileri Yükleme ve Seurat Nesnesi Oluşturma](#22-verileri-yükleme-ve-seurat-nesnesi-oluşturma)
   - [2.3. Seurat Nesnelerini Birleştirmek](#23-seurat-nesnelerini-birleştirmek)
   - [2.4. Kalite Kontrol](#24-kalite-kontrol)
-  - [2.5. Standart İşlem Adımları](#25-standart-i̇şlem-adımları)
+  - [2.5. Temel Veri İşleme Adımları](#25-temel-veri-işleme-adımları)
   - [2.6. Harmony ile Entegrasyon](#26-harmony-ile-entegrasyon)
   - [2.7. CCA (Canonical Correlation Analysis) ile Entegrasyon](#27-cca-ile-entegrasyon)
   - [2.8. JointPCA ile Entegrasyon](#28-jointpca-ile-entegrasyon)
@@ -324,7 +324,7 @@ Buraya kadar yapılan analizler, tek bir scRNA-seq verisi ile gerçekleştirilen
 saveRDS(seurat, file="DN1/seurat_obj_final.rds")
 seurat <- readRDS("DN1/seurat_obj_final.rds")
 ```
-## Bölüm 2: Birden Fazla scRNAseq Verisini Entegre Etme
+## Bölüm 2: Birden Fazla scRNA-seq Verisini Entegre Etme
 
 Tek bir scRNA-seq verisiyle analiz yapmak az rastlanan bir durumdur ve biyolojik çeşitliliği ile koşulları yansıtmakta sınırlı kalabilir. Bu nedenle, farklı koşullardan ve örneklerden gelen scRNA-seq verilerinin entegre edilmesi, hücresel çeşitliliği ve biyolojik varyasyonları daha geniş bir perspektifte inceleme olanağı sağlar. Çoklu scRNA-seq verilerini birleştirmek, biyolojik sistemlerdeki ortak ve benzersiz hücresel durumları anlamamıza olanak tanır. Bununla birlikte, veri entegrasyonu süreci teknik zorluklar barındırır. Her örneğin kendine has batch etkileri, biyolojik ve teknik varyasyonları dikkate alınarak birleştirilmesi gerekir. İyi bir entegrasyon stratejisi, hücresel farklılıkları korurken teknik etkileri minimize etmeyi hedefler. Bu yaklaşım, araştırmacılara daha kapsamlı analizler yapma ve biyolojik sistemlerin daha derinlemesine anlaşılmasını sağlar.
 
@@ -391,7 +391,7 @@ VlnPlot(seurat_merged, features = c("nCount_RNA", "nFeature_RNA", "percent.mt"))
 ```
 ![vlnplot_merged_QC2](images/vlnplot_merged_QC2.png)
 
-## 3.5. Standart İşlem Adımları
+## 3.5. Temel Veri İşleme Adımları
 
 Bu adım, Bölüm 1'den aşina olduğumuz Seurat nesnesi üzerinde temel veri işleme ve hücre kümeleme adımlarını gerçekleştirir. İlk olarak, hücreler arası teknik farklılıkları gidermek için veri normalizasyonu yapılır. Ardından, en değişken genler belirlenir ve bu genler kullanılarak veriler ölçeklendirilir. PCA (Principal Component Analysis) ile boyut indirgeme gerçekleştirilir ve hücreler arasındaki ilişkiler belirlenir. Bu ilişkiler kullanılarak hücreler kümelere ayrılır (clustering), ve son olarak UMAP ile hücreler 2 veya 3 boyutlu bir alanda görselleştirilir. Bu işlemler, hücre popülasyonları arasındaki farklılıkları keşfetmek ve görselleştirmek için temel adımlardır.
 
