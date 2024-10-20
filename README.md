@@ -1,4 +1,4 @@
-# scRNA-seq Analizi
+# scRNA-seq Analiz Projesi
 
 Bu proje, tek hücreli RNA dizileme (scRNA-seq) verilerinin analizi için geliştirilmiştir. Amaç, hücresel heterojenliği anlamak ve belirli hücre tiplerinin gen ekspresyon profillerini incelemektir.
 
