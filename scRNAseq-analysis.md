@@ -37,9 +37,13 @@
 
 Tek hücreli RNA sekanslama (scRNA-seq), bireysel hücrelerin transkriptomlarını analiz etmek için kullanılan güçlü bir tekniktir. Bu yöntem, geleneksel bulk RNA-seq'in aksine, her bir hücrenin gen ekspresyon profilini ayrı ayrı incelememize olanak tanır. scRNA-seq, hücresel heterojenliği ortaya çıkarmak, nadir hücre tiplerini tanımlamak, hücre gelişim yollarını anlamak ve hastalık durumlarında hücresel değişiklikleri incelemek için kullanılır.
 
-Şimdi, kodları ve açıklamalarını adım adım inceleyelim:
+[Seurat](https://satijalab.org/seurat/), tek hücreli RNA dizileme (scRNA-seq) verilerinin analizi için en yaygın kullanılan araçlardan biridir ve R programlama dili üzerinde çalışır. Seurat, verilerin ön işlenmesinden (kalite kontrol, normalizasyon, boyut indirgeme) hücrelerin kümelenmesine ve biyolojik anlamlandırmasına kadar birçok aşamayı destekleyen kapsamlı bir analiz sunar.  Seurat'a benzer şekilde, [Scanpy](https://genomebiology.biomedcentral.com/articles/10.1186/s13059-017-1382-0), özellikle büyük ölçekli scRNA-seq veri setleri üzerinde hızlı ve verimli analizler yapmayı mümkün kılan, güçlü ve esnek bir Python kütüphanesidir. Her iki araç da büyük ve karmaşık scRNA-seq verileri üzerinde analiz yapmayı kolaylaştırarak, hücresel heterojenliği anlamada önemli rol oynar.
 
 ## Bölüm 1: Temel Veri İşleme Adımları
+
+Tek hücreli RNA dizileme (scRNAseq) verilerinin işlenmesi birkaç temel adımdan oluşur. İlk olarak, kalite kontrol adımında her hücre için toplam gen sayısı, toplam molekül (UMI) sayısı ve mitokondriyal gen ekspresyon yüzdesi gibi metrikler değerlendirilir, düşük kaliteli hücreler filtrelenir. Ardından, verilerin normalize edilmesiyle hücreler arasındaki teknik farklılıklar düzeltilir; bu aşamada genellikle logaritmik dönüşüm kullanılır. Verilerin daha etkili analiz edilebilmesi için yüksek değişkenliğe sahip genler seçilir ve bu genler üzerinden boyut indirgeme yöntemleri (örneğin PCA) uygulanır. Son olarak, hücreler benzer gen ekspresyon profillerine göre gruplandırılır (clustering) ve elde edilen kümeler biyolojik anlamda yorumlanarak hücre tipleri atanır. Bu süreç boyunca görselleştirme teknikleri (örneğin t-SNE veya UMAP) kullanılarak sonuçlar incelenir.
+
+Şimdi, kodları ve açıklamalarını adım adım inceleyelim:
 
 ## 1.1. Kütüphaneleri Ortama Entegre Etme
 
@@ -62,9 +66,9 @@ install.packages('tidyverse')
 Seurat, analiz boyunca verilerin saklanması ve işlenmesinde Seurat nesnesi adındaki veri türünü kullanır. Bu nedenle, ilk adım veriyi okumak ve Seurat nesnesi oluşturmaktır. Veri okuma adımında çeşitli okuma yöntemleri bulunmaktadır. `Read10x` fonksiyonu, 10x Genomics platformu tarafından üretilen çıktıları okumak için özel olarak tasarlanmıştır. Aynı zamanda, `ReadMtx` fonksiyonu kullanılarak da veriler okunur. `ReadMtx`, Daha esnektir. 10x verilerini okuyabilir, ancak diğer kaynaklardan gelen benzer formattaki verileri de okuyabilir.
 
 Bu analizde, scRNA-seq veri setini okumak için Seurat paketinin `ReadMtx` fonksiyonu kullanılmıştır. `ReadMtx`, üç ayrı dosyadan oluşan bir veri setini okur:
-`mtx`: Gene ekspresyon matrisini içeren dosya. Bu, hangi genin hangi hücrede ne kadar eksprese edildiğini gösteren sparse matristir.
-`features`: Gen (veya diğer özelliklerin) isimlerini içeren dosya. Bu, matristeki satırların hangi genlere karşılık geldiğini belirtir.
-`cells`: Hücre barkodlarını içeren dosya. Bu, matristeki sütunların hangi hücrelere karşılık geldiğini belirtir.
+- `mtx`: Gene ekspresyon matrisini içeren dosya. Bu, hangi genin hangi hücrede ne kadar eksprese edildiğini gösteren sparse matristir.
+- `features`: Gen (veya diğer özelliklerin) isimlerini içeren dosya. Bu, matristeki satırların hangi genlere karşılık geldiğini belirtir.
+- `cells`: Hücre barkodlarını içeren dosya. Bu, matristeki sütunların hangi hücrelere karşılık geldiğini belirtir.
 
 ```R
 counts <- ReadMtx(mtx = "GSE264489_RAW/GSM8218884_Dn1_matrix.mtx.gz",
@@ -244,7 +248,7 @@ dimplot1 + dimplot2
 
 ## 1.10. Diferansiyel Olarak İfade Edilen Belirteçlerin Belirlenmesi ve Hücre Tiplerini Atama
 
-Hücreleri kümelemek, scRNA-seq analizi sürecinin önemli bir aşamasıdır. Bu adım, benzer gen ekspresyon profillerine sahip hücrelerin gruplandırılmasını sağlar ve hücresel heterojenitenin anlaşılmasına katkıda bulunur. Kümeleme, hücrelerin biyolojik özelliklerine göre organize edilmesine olanak tanır ve genellikle belirteçler, literatür verileri veya otomatik yaklaşımlar kullanılarak gerçekleştirilir. Belirteçlere dayalı yöntemler, daha önce tanımlanmış gen setleri üzerinden hücre tiplerini belirlemeye yönelik olarak kullanılabilirken; otomatik yöntemler, makine öğrenimi algoritmaları ile hücreleri daha objektif bir şekilde sınıflandırma imkanı sunar.
+Hücreleri kümelemek, scRNA-seq analizi sürecinin önemli bir aşamasıdır. Bu adım, benzer gen ekspresyon profillerine sahip hücrelerin gruplandırılmasını sağlar ve hücresel heterojenitenin anlaşılmasına katkıda bulunur. Kümeleme, hücrelerin biyolojik özelliklerine göre organize edilmesine olanak tanır ve genellikle belirteçler, literatür verileri veya otomatik yaklaşımlar kullanılarak belirlenir. Belirteçlere dayalı yöntemler, daha önce tanımlanmış gen setleri üzerinden hücre tiplerini belirlemeye yönelik olarak kullanılabilirken; otomatik yöntemler, makine öğrenimi algoritmaları ile hücreleri daha objektif bir şekilde sınıflandırma imkanı sunar.
 
 Kümeleme adımının ardından, her bir küme için belirteçler atanarak bu hücre gruplarının tanımlanması sağlanır. Belirteçler, belirli hücre tiplerine özgü genlerin ekspresyon seviyeleri üzerinden belirlenir ve genellikle literatürdeki referanslar doğrultusunda seçilir. Belirteçlerden bazıları şunları içerir:
 
@@ -296,9 +300,9 @@ DoHeatmap(seurat_obj, features = top10_markers$gene) + NoLegend() + theme(axis.t
 
 ![doheatmap_top10_markers](images/doheatmap_top10_markers.png)
 
-CD4+ T hücrelerini temsil eden kümeler, belirteçler ve gen ekspresyon profillerine dayanarak küme 0, 3 ve 7 olarak belirlenmiştir. CD8A ve CD8B genlerinin güçlü ekspresyon gösterdiği küme 5 ise CD8+ T hücrelerine aittir. Küme 1, 2 ve 11 CD14+ monositlere, küme 9 ise FCGR3A+ monositlere atanmaktadır. MS4A1 ve CD79A genlerinin yüksek seviyede ifade edildiği küme 8 ve 13, B hücreleri olarak sınıflandırılmıştır. Küme 4 ve 6 NK hücrelerine, küme 10 ve 14 ise dendritik hücrelere karşılık gelmektedir. Son olarak, küme 15, plateletler olarak tespit edilmiştir.
+Belirteçler ve gen ekspresyon profillerine dayanarak CD4+ T hücrelerini temsil eden kümeler, 0, 3 ve 7 olarak belirlenmiştir. CD8A ve CD8B genlerinin güçlü ekspresyon gösterdiği küme 5 ise CD8+ T hücrelerine aittir. Küme 1, 2 ve 11 CD14+ monositlere, küme 9 ise FCGR3A+ monositlere atanmaktadır. MS4A1 ve CD79A genlerinin yüksek seviyede ifade edildiği küme 8 ve 13, B hücreleri olarak sınıflandırılmıştır. Küme 4 ve 6 NK hücrelerine, küme 10 ve 14 ise dendritik hücrelere karşılık gelmektedir. Son olarak, küme 15, plateletler olarak tespit edilmiştir.
  
-Hücre kümelerinin bu şekilde atamaları yapılabilir; ancak bunun öznel olduğunu düşünebilirsiniz. Bu atamaları daha nesnel hale getirmek için SingleR gibi araçlar kullanılabilir. SingleR, referans veri setleri ile karşılaştırma yaparak hücre tiplerini otomatik olarak atamaya olanak tanır. Örneğin, referans olarak immün hücre veri tabanları kullanılarak, her bir hücrenin en yakın referans hücresi belirlenebilir ve bu sayede hücre tipi atamaları daha sistematik ve objektif bir şekilde gerçekleştirilebilir. SingleR çıktıları, manuel analizlerle karşılaştırıldığında tutarlılık sağlanması da analiz doğruluğunu artırır.
+Hücre kümelerinin bu şekilde atamaları yapılabilir; ancak bunun öznel olduğunu düşünebilirsiniz. Bu atamaları daha nesnel hale getirmek için SingleR gibi araçlar kullanılabilir. [SingleR](https://github.com/dviraran/SingleR), referans veri setleri ile karşılaştırma yaparak hücre tiplerini otomatik olarak atamaya olanak tanır. Örneğin, referans olarak immün hücre veri tabanları kullanılarak, her bir hücrenin en yakın referans hücresi belirlenebilir ve bu sayede hücre tipi atamaları daha sistematik ve objektif bir şekilde gerçekleştirilebilir. SingleR çıktıları, manuel analizlerle karşılaştırıldığında tutarlılık sağlanması da analiz doğruluğunu artırır.
 
 Hücre tipleri, hücre kümelerine atanabilir. Her küme için belirlenen hücre tipleri bir vektöre aktarılır ve names fonksiyonu ile bu hücre tipleri, Seurat objesindeki mevcut kümelerle eşleştirilir. `RenameIdents` fonksiyonu kullanılarak, Seurat objesindeki hücre kümeleri bu yeni hücre tiplerine göre yeniden adlandırılır. Bu sayede, her hücre kümesi biyolojik olarak anlamlı hücre tipleriyle eşleştirilmiş olur.
 
@@ -361,7 +365,7 @@ DN1_seurat <- CreateSeuratObject(counts = DN1_counts, min.cells = 3, min.feature
 
 ## 2.3. Seurat Nesnelerini Birleştirmek
 
-Bu aşamada, iki farklı Seurat nesnesi (OV1_seurat ve DN1_seurat) `merge` fonksiyonu kullanılarak birleştirilir. Bu işlem, iki farklı örnekten gelen hücrelerin aynı analiz ortamında değerlendirilmesini sağlar.
+Bu aşamada, iki farklı Seurat nesnesi (OV1_seurat ve DN1_seurat) `merge` fonksiyonu kullanılarak birleştirilir. Bu işlem, iki farklı örnekten gelen hücrelerin aynı analiz ortamında değerlendirilmesini sağlar. `add.cell.ids = c("OV1", "DN1")` parametresi, her veri setine ait hücrelerin kimliklerini ayrı ayrı etiketlemek için kullanılır.
 
 ```R
 seurat_merged <- merge(x=OV1_seurat, y=DN1_seurat, add.cell.ids = c("OV1", "DN1"), project="HGSOC")
