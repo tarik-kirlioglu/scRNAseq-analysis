@@ -325,7 +325,7 @@ DimPlot(seurat_obj, reduction = "umap", label = TRUE, pt.size = 1) + NoLegend()
 Buraya kadar yapılan analizler, tek bir scRNA-seq verisi ile gerçekleştirilen analizleri kapsar. Bu işlemin sonunda, Seurat objesini kaydederek yeniden analiz yapmaya gerek kalmaz. Seurat objesi, `saveRDS` fonksiyonu kullanılarak kaydedilebilir ve daha sonra `readRDS` fonksiyonu ile tekrar yüklenebilir. Bu sayede, analizin ilerleyen aşamalarında aynı obje üzerinde çalışmaya devam edilebilir.
 
 ```R
-saveRDS(seurat, file="DN1/seurat_obj_final.rds")
+saveRDS(seurat, file = "DN1/seurat_obj_final.rds")
 seurat <- readRDS("DN1/seurat_obj_final.rds")
 ```
 ## Bölüm 2: Birden Fazla scRNA-seq Verisini Entegre Etme
