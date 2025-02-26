@@ -368,7 +368,7 @@ DN1_seurat <- CreateSeuratObject(counts = DN1_counts, min.cells = 3, min.feature
 Bu aşamada, iki farklı Seurat nesnesi (OV1_seurat ve DN1_seurat) `merge` fonksiyonu kullanılarak birleştirilir. Bu işlem, iki farklı örnekten gelen hücrelerin aynı analiz ortamında değerlendirilmesini sağlar. `add.cell.ids = c("OV1", "DN1")` parametresi, her veri setine ait hücrelerin kimliklerini ayrı ayrı etiketlemek için kullanılır.
 
 ```R
-seurat_merged <- merge(x = OV1_seurat, y=DN1_seurat, add.cell.ids = c("OV1", "DN1"), project="HGSOC")
+seurat_merged <- merge(x = OV1_seurat, y = DN1_seurat, add.cell.ids = c("OV1", "DN1"), project="HGSOC")
 ```
 
 ## 3.4. Kalite Kontrol
