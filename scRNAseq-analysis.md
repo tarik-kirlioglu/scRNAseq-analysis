@@ -428,7 +428,7 @@ Verileri entegre etmek için Seurat paketinin sunduğu `IntegrateLayers` fonksiy
 seurat_integrated <- IntegrateLayers(seurat_merged,
                                      method = HarmonyIntegration,
                                      new.reduction = "harmony",
-                                     verbose=T)
+                                     verbose = T)
 
 ```
 
