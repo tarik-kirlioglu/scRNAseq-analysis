@@ -458,7 +458,7 @@ CCA ile entegrasyon için `IntegrateLayers` fonksiyonunda yer alan method parame
 ```R
 seurat_integrated <- IntegrateLayers(seurat_merged,
                                      method = CCAIntegration,
-                                     new.reduction ="CCAIntegration",
+                                     new.reduction = "CCAIntegration",
                                      verbose=T)
 
 ```
