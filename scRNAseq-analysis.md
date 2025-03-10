@@ -371,7 +371,7 @@ Bu aşamada, iki farklı Seurat nesnesi (OV1_seurat ve DN1_seurat) `merge` fonks
 seurat_merged <- merge(x = OV1_seurat, y = DN1_seurat, add.cell.ids = c("OV1", "DN1"), project = "HGSOC")
 ```
 
-## 3.4. Kalite Kontrol
+## 2.4. Kalite Kontrol
 
 Seurat nesnelerini birleştirdikten sonra, temel veri işleme adımları izlenir. İlk olarak, kalite kontrol aşamasında hücrelerin mitokondriyal gen ekspresyon oranı hesaplanır. Bu oran, hücrelerin sağlığını ve kalitesini değerlendirmek için önemli bir metrik olarak kullanılır. Ardından, violin grafikleri kullanılarak kalite kontrol metriklerinin dağılımı görsel olarak incelenir.
 
@@ -395,7 +395,7 @@ VlnPlot(seurat_merged, features = c("nCount_RNA", "nFeature_RNA", "percent.mt"))
 ```
 ![vlnplot_merged_QC2](images/vlnplot_merged_QC2.png)
 
-## 3.5. Temel Veri İşleme Adımları
+## 2.5. Temel Veri İşleme Adımları
 
 Bu adım, Bölüm 1'den aşina olduğumuz Seurat nesnesi üzerinde temel veri işleme ve hücre kümeleme adımlarını gerçekleştirir. İlk olarak, hücreler arası teknik farklılıkları gidermek için veri normalizasyonu yapılır. Ardından, en değişken genler belirlenir ve bu genler kullanılarak veriler ölçeklendirilir. PCA (Principal Component Analysis) ile boyut indirgeme gerçekleştirilir ve hücreler arasındaki ilişkiler belirlenir. Bu ilişkiler kullanılarak hücreler kümelere ayrılır (clustering), ve son olarak UMAP ile hücreler 2 veya 3 boyutlu bir alanda görselleştirilir. Bu işlemler, hücre popülasyonları arasındaki farklılıkları keşfetmek ve görselleştirmek için temel adımlardır.
 
@@ -419,7 +419,7 @@ unintegratedUMAP
 ```
 ![unintegratedUMAP](images/unintegratedUMAP.png)
 
-## 3.6. Harmony ile Entegrasyon
+## 2.6. Harmony ile Entegrasyon
 
 [Harmony](https://www.nature.com/articles/s41592-019-0619-0), scRNAseq verileri arasındaki batch etkilerini düzeltmek için kullanılan bir yöntemdir. Bu yöntem, örnekler arasındaki sistematik farklılıkları ortadan kaldırarak entegre edilmiş verilerin biyolojik olarak anlamlı olmasını sağlar. Harmony, her bir hücrenin yüksek boyutlu ifadesini dikkate alarak hücreler arasındaki benzerlikleri belirler ve bu sayede farklı örneklerden gelen hücrelerin doğru bir şekilde karşılaştırılmasını sağlar. Entegrasyon sonrasında elde edilen veri seti, hücre popülasyonları arasındaki biyolojik ilişkileri ve yapıların daha iyi anlaşılmasına olanak tanır.
 
@@ -449,7 +449,7 @@ harmonyUMAP
 ```
 ![harmonyUMAP](images/harmonyUMAP.png)
 
-## 3.7. CCA (Canonical Correlation Analysis) ile Entegrasyon
+## 2.7. CCA (Canonical Correlation Analysis) ile Entegrasyon
 
 Canonical Correlation Analysis (CCA), iki veya daha fazla veri seti arasındaki ilişkileri belirlemek için kullanılan güçlü bir istatistiksel yöntemdir. scRNA-seq verilerinin entegrasyonunda CCA, farklı hücre örnekleri veya deney grupları arasında ortak özellikleri ortaya çıkarmak amacıyla kullanılır. Bu yöntem, farklı veri setlerinde benzer hücresel popülasyonları veya biyolojik süreçleri tanımlamak için biyolojik olarak anlamlı ilişkileri açığa çıkarmak üzerine odaklanır.
 
@@ -481,7 +481,7 @@ CCAumap
 ```
 ![CCAUMAP](images/CCAUMAP.png)
 
-## 3.8. JointPCA ile Entegrasyon
+## 2.8. JointPCA ile Entegrasyon
 
 Joint Principal Component Analysis (JointPCA), farklı veri setlerini bir araya getirerek bu veri setleri arasındaki ortak varyansı keşfetmek için kullanılan bir yöntemdir. Özellikle birden fazla tek hücreli RNA dizileme verilerinde, JointPCA, hücrelerin benzerliklerini ve farklılıklarını analiz ederek entegre edilmiş bir görünüm sunar.
 
@@ -511,7 +511,7 @@ JPCAUMAP
 ```
 ![JPCAUMAP](images/JPCAUMAP.png)
 
-## 3.9. RPCA ile Entegrasyon
+## 2.9. RPCA ile Entegrasyon
 
 Robust Principal Component Analysis (RPCA), scRNA-seq verilerinin entegrasyonu için etkili bir yöntemdir. Farklı hücre dizilimi verilerini bir araya getirirken, RPCA, veri setleri arasındaki biyolojik benzerlikleri belirlemek ve teknik varyasyonu azaltmak için kullanılır. Bu yöntem, geleneksel PCA'nın sınırlamalarını aşarak, aykırı değerlerin etkisini en aza indirir ve verilerin gürültüden arındırılmasını sağlar.
 
@@ -556,7 +556,7 @@ allUMAP
 
 ![allUMAP](images/allUMAP.png)
 
-## 3.10. Peki, Hangi Entegrasyon Yöntemi Seçilmeli?
+## 2.10. Peki, Hangi Entegrasyon Yöntemi Seçilmeli?
 
 Veriler entegre edildikten sonra hücre kümeleme, belirteç tanımlama, hücre ataması, pseudotime  analizi ve diferansiyal ekspresyon analizi gibi çeşitli analizler yapılmaya devam edilebilir. Ancak, hangi entegrasyon yönteminin kullanılacağına karar verilmesi gerekir ki görüleceği üzere birden fazla seçenek bulunmaktadır. Tabi ki kesin bir kural olmamakla birlikte elinizde bulunan verilerin uygunluğu, analiz hedefleri ve spesifik araştırma sorularınız, hangi entegrasyon yönteminin seçileceği konusunda belirleyici unsurlar olacaktır. 
 
