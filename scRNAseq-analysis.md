@@ -490,8 +490,8 @@ Diğer analizlere benzer şekilde, JointPCA ile entegrasyon için `IntegrateLaye
 ```R
 seurat_integrated <- IntegrateLayers(seurat_merged,
                                      method = JointPCAIntegration,
-                                     new.reduction ="JPCAIntegration",
-                                     verbose=T)
+                                     new.reduction = "JPCAIntegration",
+                                     verbose = T)
 ```
 
 Aynı şekilde entegrasyon sonrası yinelemeli adımlar gerçekleştirilmelidir.
