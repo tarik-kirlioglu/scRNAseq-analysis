@@ -506,7 +506,7 @@ seurat_integrated <- seurat_integrated %>%
 Görselleştirme için `DimPlot` kullanılabilir ve reduction parametresi `JPCAUMAP` olarak belirtilmelidir.
 
 ```R
-JPCAUMAP <-DimPlot(seurat_integrated, reduction = "JPCAUMAP", group.by = "orig.ident")
+JPCAUMAP <- DimPlot(seurat_integrated, reduction = "JPCAUMAP", group.by = "orig.ident")
 JPCAUMAP
 ```
 ![JPCAUMAP](images/JPCAUMAP.png)
