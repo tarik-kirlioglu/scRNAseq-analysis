@@ -520,8 +520,8 @@ Benzer şekilde, RPCA ile entegrasyon için `IntegrateLayers` fonksiyonunda yer 
 ```R
 seurat_integrated <- IntegrateLayers(seurat_merged,
                                      method = RPCAIntegration,
-                                     new.reduction ="RPCAIntegration",
-                                     verbose=T)
+                                     new.reduction = "RPCAIntegration",
+                                     verbose = T)
 ```
 
 Yinelemeli adımlar çalıştırılmalıdır.
